@@ -406,6 +406,8 @@ public class CMakeTargetInst
 #endif//!UE_5_0_OR_LATER
             )
         {
+            name="";
+            options="";
 //            name=GetWindowsGeneratorName(target.WindowsPlatform.Compiler);
 //            options=GetWindowsGeneratorOptions(target.WindowsPlatform.Compiler, target.WindowsPlatform.Architecture);
         }
