@@ -338,59 +338,59 @@ public class CMakeTargetInst
         return true;
     }
 
-    private string GetWindowsGeneratorName(WindowsCompiler compiler)
-    {
-        string generatorName="";
-
-        switch(compiler)
-        {
-        case WindowsCompiler.Default:
-        break;
-        case WindowsCompiler.Clang:
-            generatorName="NMake Makefiles";
-        break;
-        case WindowsCompiler.Intel:
-            generatorName="NMake Makefiles";
-        break;
-#if !UE_5_0_OR_LATER
-        case WindowsCompiler.VisualStudio2017:
-            generatorName="Visual Studio 15 2017";
-        break;
-#endif//!UE_5_0_OR_LATER
-        case WindowsCompiler.VisualStudio2019:
-            generatorName="Visual Studio 16 2019";
-        break;
-        case WindowsCompiler.VisualStudio2022:
-            generatorName="Visual Studio 17 2022";
-        break;
-        }
-
-        return generatorName;
-    }
-
-    private string GetWindowsGeneratorOptions(WindowsCompiler compiler, WindowsArchitecture architecture)
-    {
-        string generatorOptions="";
-
-        if((compiler == WindowsCompiler.VisualStudio2022) || (compiler == WindowsCompiler.VisualStudio2019)
-#if !UE_5_0_OR_LATER
-            || (compiler == WindowsCompiler.VisualStudio2017)
-#endif//!UE_5_0_OR_LATER 
-        )
-        {
-            if(architecture == WindowsArchitecture.x64)
-                generatorOptions="-A x64";
-            else if(architecture == WindowsArchitecture.ARM64)
-                generatorOptions="-A ARM64";
-#if !UE_5_0_OR_LATER
-            else if(architecture == WindowsArchitecture.x86)
-                generatorOptions="-A Win32";
-            else if(architecture == WindowsArchitecture.ARM32)
-                generatorOptions="-A ARM";
-#endif//!UE_5_0_OR_LATER
-        }
-        return generatorOptions;
-    }
+//    private string GetWindowsGeneratorName(WindowsCompiler compiler)
+//    {
+//        string generatorName="";
+//
+//        switch(compiler)
+//        {
+//        case WindowsCompiler.Default:
+//        break;
+//        case WindowsCompiler.Clang:
+//            generatorName="NMake Makefiles";
+//        break;
+//        case WindowsCompiler.Intel:
+//            generatorName="NMake Makefiles";
+//        break;
+//#if !UE_5_0_OR_LATER
+//        case WindowsCompiler.VisualStudio2017:
+//            generatorName="Visual Studio 15 2017";
+//        break;
+//#endif//!UE_5_0_OR_LATER
+//        case WindowsCompiler.VisualStudio2019:
+//            generatorName="Visual Studio 16 2019";
+//        break;
+//        case WindowsCompiler.VisualStudio2022:
+//            generatorName="Visual Studio 17 2022";
+//        break;
+//        }
+//
+//        return generatorName;
+//    }
+//
+//    private string GetWindowsGeneratorOptions(WindowsCompiler compiler, WindowsArchitecture architecture)
+//    {
+//        string generatorOptions="";
+//
+//        if((compiler == WindowsCompiler.VisualStudio2022) || (compiler == WindowsCompiler.VisualStudio2019)
+//#if !UE_5_0_OR_LATER
+//            || (compiler == WindowsCompiler.VisualStudio2017)
+//#endif//!UE_5_0_OR_LATER
+//        )
+//        {
+//            if(architecture == WindowsArchitecture.x64)
+//                generatorOptions="-A x64";
+//            else if(architecture == WindowsArchitecture.ARM64)
+//                generatorOptions="-A ARM64";
+//#if !UE_5_0_OR_LATER
+//            else if(architecture == WindowsArchitecture.x86)
+//                generatorOptions="-A Win32";
+//            else if(architecture == WindowsArchitecture.ARM32)
+//                generatorOptions="-A ARM";
+//#endif//!UE_5_0_OR_LATER
+//        }
+//        return generatorOptions;
+//    }
 
     GeneratorInfo GetGeneratorInfo(ReadOnlyTargetRules target, ModuleRules rules)
     {
@@ -406,8 +406,8 @@ public class CMakeTargetInst
 #endif//!UE_5_0_OR_LATER
             )
         {
-            name=GetWindowsGeneratorName(target.WindowsPlatform.Compiler);
-            options=GetWindowsGeneratorOptions(target.WindowsPlatform.Compiler, target.WindowsPlatform.Architecture);
+//            name=GetWindowsGeneratorName(target.WindowsPlatform.Compiler);
+//            options=GetWindowsGeneratorOptions(target.WindowsPlatform.Compiler, target.WindowsPlatform.Architecture);
         }
         else if(target.Platform == UnrealTargetPlatform.Linux)
         {
